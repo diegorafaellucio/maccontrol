@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Ispshop_Controle>
+            <version>1.0.0</version>
+        </Ispshop_Controle>
+    </modules>
+     
+    <global>
+        <helpers>
+            <ispshop_controle>
+                <!-- This is where we define our helper directory -->
+                <class>Ispshop_Controle_Helper</class>
+            </ispshop_controle>
+        </helpers>
+                    
+        <blocks>
+            <ispshop_controle>
+                <!-- Set a block definition and lookup directory -->
+                <class>Ispshop_Controle_Block</class>
+            </ispshop_controle>
+        </blocks>
+         
+        <models>
+            <ispshop_controle>
+                <!-- This is where we define our model directory -->
+                <class>Ispshop_Controle_Model</class>
+                <!-- Define a resource to create a custom table -->
+                <resourceModel>ispshop_controle_mysql4</resourceModel>
+            </ispshop_controle>
+             
+            <!-- Here's our resource model we'll use to create a database table -->
+            <ispshop_controle_mysql4>
+                <class>Ispshop_Controle_Model_Mysql4</class>
+                <entities>
+                    <!-- Let's define our table, we'll call it with the mac name, but the real table is ispshop_controle_mac -->
+                    <!-- After we define our entity, we can call it with our model by calling ispshop_controle/mac -->
+                    <mac>
+                        <table>ispshop_controle_mac</table>
+                    </mac>
+                </entities>
+            </ispshop_controle_mysql4>
+        </models>
+         
+        <!-- And finally we define our resource setup script -->
+        <resources>
+            <ispshop_controle_setup>
+                <setup>
+                    <module>Ispshop_Controle</module>
+                </setup>
+            </ispshop_controle_setup>
+        </resources>
+    </global>
+     
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <!-- This is how we load our Adminhtml controllers -->
+                    <modules>
+                        <Ispshop_Controle before="Mage_Adminhtml">Ispshop_Controle_Adminhtml</Ispshop_Controle>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    
+    <frontend>
+        <routers>
+            <ispshop_controle>
+                <use>standard</use>
+                <args>
+                    <module>Ispshop_Controle</module>
+                    <frontName>ispshop_controle</frontName>
+                </args>
+            </ispshop_controle>
+        </routers> 
+        
+        <layout>
+            <updates>
+                <ispshop_controle>
+                    <!--
+                    We again keep a nice naming convention and make our module upgrade proof by placing it in a separate folder
+                    - Since we are in the adminhtml node, this will look for the XML file in the app/design/adminhtml/default/default root folder
+                    -->
+                    <file>ispshop/controle.xml</file>
+                </ispshop_controle>
+            </updates>
+        </layout> 
+    </frontend>
+     
+    <adminhtml>
+        <layout>
+            <updates>
+                <ispshop_controle>
+                    <!--
+                    We again keep a nice naming convention and make our module upgrade proof by placing it in a separate folder
+                    - Since we are in the adminhtml node, this will look for the XML file in the app/design/adminhtml/default/default root folder
+                    -->
+                    <file>ispshop/controle.xml</file>
+                </ispshop_controle>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <!--<customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" module="ispshop_controle">
+                <name>ispshop_controle</name>
+                <path>ispshop_controle/customer_mac</path>
+                <label>Controle de MACs e Seriais</label>
+            </action>
+        </reference>
+    </customer_account>-->
+    <ispshop_controle_customer_mac_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/mac_column.phtml</template>      
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="ispshop_controle/customer_mac" name="ispshop_controle_mac" template="ispshop/controle.phtml"/>
+        </reference>
+    </ispshop_controle_customer_mac_index>
+    
+    <awrma_customer_rma_list>
+        <reference name="head">
+            <action method="addJs">
+                <script>prototype/window.js</script>
+            </action>
+            <action method="addJs">
+                <script>ispshop/ispshop_controle.js</script>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>prototype/windows/themes/default.css</name>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>prototype/windows/themes/magento.css</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="ispshop_controle/customer_button" name="ispshop_controle_button" template="ispshop/button.phtml"/>
+        </reference>
+    </awrma_customer_rma_list>
+    
+    <helpdeskultimate_customer_index>
+        <reference name="head">
+            <action method="addJs">
+                <script>prototype/window.js</script>
+            </action>
+            <action method="addJs">
+                <script>ispshop/ispshop_controle.js</script>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>prototype/windows/themes/default.css</name>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>prototype/windows/themes/magento.css</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="ispshop_controle/customer_button" before="helpdeskultimate_ticketform" name="ispshop_controle_button" template="ispshop/button.phtml"/>
+        </reference>
+    </helpdeskultimate_customer_index>
+    
+</layout>

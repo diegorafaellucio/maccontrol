@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<layout>
+    <!-- Here, we reference the XML node path of our route -->
+    <adminhtml_mac_index>
+        <reference name="content">
+            <!-- We also reference our block by namespacename_modulename/adminhtml_controllername, and name it uniquely -->
+            <block type="ispshop_controle/adminhtml_mac" name="ispshop_controle_mac" />
+        </reference>
+    </adminhtml_mac_index>
+    <adminhtml_sales_order_view>
+        <reference name="sales_order_tabs">
+            <block type="ispshop_controle/adminhtml_sales_order_view_tabs_mac" name="ispshop_controle_mac"/>
+            <action method="addTab">
+                <name>Controle_De_MACs_Seriais</name>
+                <block>ispshop_controle_mac</block>
+            </action>
+        </reference>
+    </adminhtml_sales_order_view>
+</layout>

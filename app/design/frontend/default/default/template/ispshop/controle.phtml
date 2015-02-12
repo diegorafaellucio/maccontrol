@@ -1,0 +1,45 @@
+<!-- Page Title -->
+<div class="page-title">
+    <h2><?php echo $this->__('Controle de MACs e Seriais') ?></h2>
+</div>
+<input style="width: 329px;" type="text" class="input-text" placeholder="Informe o o Id da compra, o MAC ou o Serial" name="searchString" id="searchString">
+<br/>
+<br/>
+<div>
+    <table id="my-person-table" class="data-table">
+        <colgroup>
+            <col width="1">
+            <col>
+            <col width="1">
+            <col width="1">
+            <col>
+        </colgroup>
+        <thead>
+            <tr class="first last">
+                <th><?php echo $this->__('Pedido') ?></th>
+                <th><?php echo $this->__('Produto') ?></th>
+                <th><?php echo $this->__('Enviado') ?></th>
+                <th><?php echo $this->__('MAC') ?></th>
+                <th><?php echo $this->__('Serial') ?></th>
+                <th><?php echo $this->__('Status') ?></th>
+            </tr>
+        </thead>
+        <tbody id="result">
+
+        </tbody>
+    </table>
+</div>
+
+<script>
+    jQuery('document').ready(function () {
+        jQuery('#searchString').keyup(function (e) {
+            var existingString = jQuery("#searchString").val();
+            var existingString = existingString.trim();
+            jQuery.get('/ispshop_controle/customer_mac/search/stringSearch/' + existingString, function (data) {
+                jQuery('#result').html(data);
+            });
+        });
+
+    });
+</script>
+
